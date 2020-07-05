@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+
+    <div class="container">
+      <div class="jumbotron">
+      <h2>Car Resale Value Prediction</h2>
+      <div class = 'form-group'>
+        <form  action="{{ url_for('predict')}}" method="post">
+          <h3>Year</h3>
+          <input id='first' placeholder="Eg. 2015" type="number" name="Year">
+          <h3>Enter Your Car's actual market value?(in lacs)</h3>
+          <br><input id='first' placeholder="Eg. 5" type="number" name="Present_Price" required='required'>
+          <h3>How many kilometers the car has been driven?</h3>
+          <br><input id='first' type="number" placeholder="Eg. 25000" name="Kms_Driven" required='required' placeholder="enter kms driven">
+          <h3>How many owners previously had the car? (0, 1 or 3)</h3>
+          <br><select id='fuel' name="Owner">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="3">3</option>
+
+          </select>
+          <h3>What is the Fuel Type of car?</h3>
+          <br><select  id='fuel' name="Fuel_Type_Petrol">
+            <option value="Petrol">Petrol</option>
+            <option value="Diesel">Diesel</option>
+            <option value="CNG">CNG</option>
+
+
+          </select>
+          <h3>Are you a Car Dealer or Individual?</h3>
+          <br><select id="resea" name="Seller_Type_Individual">
+            <option value="Dealer">Dealer</option>
+            <option value="Individual">Individual</option>
+
+          </select>
+
+          <h3>Please select the Tranmission type of your car?</h3>
+          <br><select id="resea" name="Transmission_Mannual" id="research">
+            <option value="Manual">Manual</option>
+            <option value="Automatic">Automatic</option>
+
+
+          </select>
+          <br><br><button class="btn btn-primary btn-lg" type="submit" >Calculate the selling price</button>
+
+
+
+
+        </form>
+
+        <br><br><h3>{{ prediction_texts }}</h3>
+
+      </div>
+
+    </div>
+    </div>
+
+
+
+
+  <style>
+    body{background: rgb(0,212,255);
+background: linear-gradient(90deg, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 25%, rgba(9,9,121,1) 75%, rgba(0,212,255,1) 100%);
+padding: 0px;
+text-align: center;
+color: white;}
+#research {
+    font-size: 18px;
+    width: 100px;
+    height: 23px;
+    top: 23px;}
+    #research {
+        width: 99px;
+        height: 43px;
+        text-align: center;
+        border-radius: 14px;
+        font-size: 18px;}
+
+        #research:hover {
+            background-color: yellow;}
+
+            #first {
+                border-radius: 14px;
+                height: 25px;
+                font-size: 20px;
+                text-align: center;
+              color: black;}
+                #fuel {
+                    width: 83px;
+                    height: 43px;
+                    text-align: center;
+                    border-radius: 14px;
+                    font-size: 20px;
+                    color: black;
+                }
+
+                #fuel:hover {
+                    background-color: yellow;
+                }
+                .jumbotron{
+                  background: linear-gradient(to right, #fdbb2d, #b21f1f, #1a2a6c);
+                }
+                #resea {
+                    width: 99px;
+                    height: 43px;
+                    text-align: center;
+                    border-radius: 14px;
+                    font-size: 18px;
+                    color: black;
+                }
+
+                #resea:hover {
+                    background-color: yellow;}
+
+  </style>
+
+
+
+  </body>
+</html>
